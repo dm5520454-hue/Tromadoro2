@@ -28,39 +28,14 @@
             background: #000; color: #e0e0e0; font-family: 'Tajawal', sans-serif; 
             margin: 0; padding-bottom: 120px; text-align: center; transition: 0.5s; 
             background-size: cover; background-position: center; background-attachment: fixed;
-            background-image: radial-gradient(circle at center, #111 0%, #000 100%), url('https://www.transparenttextures.com/patterns/stardust.png');
         }
-
-        /* --- Deep Work Mode Style --- */
-        body.deep-focus .navbar, 
-        body.deep-focus .floating-btn, 
-        body.deep-focus h1,
-        body.deep-focus .glass-card:not(.timer-card) { 
-            opacity: 0; 
-            pointer-events: none; 
-            transform: translateY(20px);
-            transition: 0.8s ease-in-out;
-        }
-        body.deep-focus .timer-card {
-            transform: translateY(50px) scale(1.1);
-            transition: 0.8s ease-in-out;
-            box-shadow: 0 0 50px rgba(0, 255, 204, 0.1);
-        }
-        /* ---------------------------- */
 
         body.dark-red { --primary: #ff3131; --border: rgba(255, 49, 49, 0.4); }
         body.dark-blue { --primary: #00d2ff; --border: rgba(0, 210, 255, 0.4); }
         body.dark-purple { --primary: #bc13fe; --border: rgba(188, 19, 254, 0.4); }
 
-        h1 { font-family: 'Cinzel', serif; color: var(--primary); margin: 20px 0; letter-spacing: 2px; position: relative; text-shadow: 0 0 10px var(--primary); transition: 0.5s; }
-        
-        .mazen-sig { animation: pulse-name 3s infinite; }
-        @keyframes pulse-name {
-            0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 20px var(--primary); }
-        }
-
-        .glass-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 25px; padding: 20px; margin: 15px auto; max-width: 85%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; transition: 0.5s; }
+        h1 { font-family: 'Cinzel', serif; color: var(--primary); margin: 20px 0; letter-spacing: 2px; position: relative; text-shadow: 0 0 10px var(--primary); }
+        .glass-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 25px; padding: 20px; margin: 15px auto; max-width: 85%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
         .total-counter { font-size: 0.85rem; color: var(--primary); margin-bottom: 15px; font-weight: bold; border: 1px solid var(--border); display: inline-block; padding: 5px 15px; border-radius: 50px; box-shadow: 0 0 5px var(--primary); }
         .timer-wrapper { display: flex; justify-content: center; align-items: center; gap: 5px; margin: 15px 0; direction: ltr; }
         .editable-time { font-size: 5rem; color: var(--primary); font-family: 'Cinzel', monospace; outline: none; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 15px; text-shadow: 0 0 8px var(--primary); }
@@ -78,13 +53,13 @@
         .item-row { display: flex; flex-direction: row-reverse; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; margin-bottom: 10px; border-right: 4px solid var(--primary); text-align: right; direction: rtl; }
         .task-text { flex: 1; outline: none; text-align: right; min-height: 1.2em; }
         
-        .check-dot { width: 18px; height: 18px; border: 2px solid var(--primary); border-radius: 50%; cursor: pointer; flex-shrink: 0; box-shadow: inset 0 0 3px var(--primary); transition: 0.3s; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+        .check-dot { width: 18px; height: 18px; border: 2px solid var(--primary); border-radius: 50%; cursor: pointer; flex-shrink: 0; box-shadow: inset 0 0 3px var(--primary); transition: 0.3s; }
         .completed { opacity: 0.4; text-decoration: line-through; }
         .completed .check-dot { background: var(--primary); }
         
         .day-box { border: 1px solid var(--border); border-radius: 15px; padding: 15px; margin-bottom: 15px; text-align: right; position: relative; direction: rtl; background: rgba(255,255,255,0.02); }
         
-        .floating-btn { position: fixed; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.75rem; z-index: 1000; display: flex; align-items: center; gap: 6px; transition: 0.5s; }
+        .floating-btn { position: fixed; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.75rem; z-index: 1000; display: flex; align-items: center; gap: 6px; }
         .btn-contact { bottom: 100px; left: 15px; background: #0088cc; color: #fff; box-shadow: 0 0 10px #0088cc; animation: glow-blue 2s infinite; }
         .btn-group { bottom: 100px; right: 15px; background: var(--primary); color: #000; box-shadow: 0 0 10px var(--primary); animation: glow-primary 2s infinite; }
         .btn-camp { bottom: 160px; right: 15px; background: #ff3131; color: #fff; box-shadow: 0 0 10px #ff3131; animation: glow-red 2s infinite; }
@@ -94,7 +69,7 @@
         @keyframes glow-red { 0%, 100% { box-shadow: 0 0 5px #ff3131; } 50% { box-shadow: 0 0 15px #ff3131; } }
         
         .theme-btn { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; display: inline-block; margin: 5px; vertical-align: middle; }
-        .navbar { position: fixed; bottom: 0; width: 100%; background: #000; display: flex; justify-content: space-around; padding: 18px 0; border-top: 1px solid var(--border); z-index: 1001; transition: 0.5s; }
+        .navbar { position: fixed; bottom: 0; width: 100%; background: #000; display: flex; justify-content: space-around; padding: 18px 0; border-top: 1px solid var(--border); z-index: 1001; }
         .nav-item { color: #444; font-size: 1.6rem; cursor: pointer; }
         .nav-item.active { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
         .page { display: none; padding: 10px; animation: fadeIn 0.4s; }
@@ -127,71 +102,9 @@
         .daily-goal-box { margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 10px; }
         .goal-input { width: 40px; background: rgba(255,255,255,0.1); border: 1px solid var(--border); color: var(--primary); border-radius: 8px; text-align: center; font-weight: bold; padding: 4px; outline: none; }
         .goal-counter { font-size: 0.9rem; font-weight: bold; color: #fff; }
-
-        /* --- New Utility Buttons --- */
-        .utility-btns { display: flex; gap: 10px; margin-top: 10px; justify-content: center; }
-        .sub-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; padding: 8px 15px; border-radius: 10px; font-size: 0.8rem; cursor: pointer; transition: 0.3s; }
-        .sub-btn:hover { border-color: var(--primary); background: rgba(0,255,204,0.1); }
-
-        /* --- FINAL EXAM MODULE STYLES --- */
-        ._final_exam_grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 10px; }
-        ._final_exam_day { aspect-ratio: 1; border: 1px solid var(--border); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.8rem; cursor: pointer; transition: 0.3s; position: relative; background: rgba(255,255,255,0.03); }
-        ._final_exam_day.completed { background: var(--primary); color: #000; box-shadow: 0 0 10px var(--primary); border-color: transparent; }
-        ._final_exam_diary_btn { font-size: 0.6rem; margin-top: 4px; color: var(--primary); background: rgba(0,0,0,0.5); border-radius: 4px; padding: 2px 4px; width: 90%; }
-        ._final_exam_day.completed ._final_exam_diary_btn { color: #000; }
-        
-        ._final_exam_overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 2000; display: none; flex-direction: column; animation: _final_fade 0.5s; padding: 20px; box-sizing: border-box; }
-        @keyframes _final_fade { from { opacity: 0; transform: scale(1.1); } to { opacity: 1; transform: scale(1); } }
-        
-        ._final_exam_diary_content { background: var(--glass); border: 1px solid var(--border); border-radius: 20px; flex: 1; margin: 20px 0; padding: 20px; color: #fff; font-size: 1.1rem; line-height: 1.8; outline: none; text-align: right; backdrop-filter: blur(30px); resize: none; width: 100%; box-sizing: border-box; }
-        ._final_exam_close { background: var(--primary); color: #000; border: none; padding: 15px; border-radius: 15px; font-weight: bold; cursor: pointer; }
-
-        /* ====================================================== */
-        /* --- START OF WEEKLY STUDY PLANNER MODULE (NEW) --- */
-        /* ====================================================== */
-        ._weekly_planner_page { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #000; z-index: 3000; display: none; flex-direction: column; 
-            padding: 20px; box-sizing: border-box; overflow-y: auto; 
-            animation: _wp_fade 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            background-image: radial-gradient(circle at top right, #111 0%, #000 100%);
-        }
-        @keyframes _wp_fade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        
-        ._wp_header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
-        ._wp_title { font-family: 'Cinzel', serif; color: var(--primary); font-size: 1.4rem; margin: 0; }
-        ._wp_back { color: var(--primary); cursor: pointer; font-weight: bold; font-size: 1rem; }
-
-        ._wp_day_card { 
-            background: var(--glass); border: 1px solid var(--border); border-radius: 20px; 
-            padding: 15px; margin-bottom: 15px; text-align: right; backdrop-filter: blur(15px);
-            transition: 0.3s;
-        }
-        ._wp_day_card:hover { border-color: var(--primary); box-shadow: 0 5px 20px rgba(0, 255, 204, 0.1); }
-        
-        ._wp_day_label { color: var(--primary); font-weight: bold; margin-bottom: 12px; font-size: 1.1rem; border-right: 3px solid var(--primary); padding-right: 10px; }
-        
-        ._wp_input_group { display: flex; flex-direction: column; gap: 10px; }
-        ._wp_input_subject { 
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
-            border-radius: 10px; padding: 12px; color: #fff; font-family: 'Tajawal';
-            outline: none; border-bottom: 2px solid var(--border);
-        }
-        ._wp_input_details { 
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); 
-            border-radius: 10px; padding: 12px; color: #bbb; font-family: 'Tajawal';
-            outline: none; resize: vertical; min-height: 80px; font-size: 0.9rem;
-        }
-        ._wp_input_subject:focus, ._wp_input_details:focus { border-color: var(--primary); color: #fff; }
-
-        /* Navigation Tab Hook */
-        ._wp_nav_trigger { color: #444; font-size: 1.6rem; cursor: pointer; }
-        /* ====================================================== */
-        /* --- END OF WEEKLY STUDY PLANNER MODULE --- */
-        /* ====================================================== */
     </style>
 </head>
-<body onload="initPWA(); loadAll(); _final_exam_init(); _wp_init()">
+<body onload="initPWA(); loadAll()">
     
     <audio id="alarm" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
     
@@ -206,7 +119,8 @@
             <p style="font-size:0.9rem; margin-bottom:12px; color: var(--primary); font-weight: bold;">الفرائض والورد اليومي 🤲</p>
             <div class="progress-container"><div id="muslim-progress" class="progress-bar"></div></div>
             
-            <div id="prayer-list-new"></div>
+            <div id="prayer-list-new">
+                </div>
         </div>
 
         <div class="glass-card" style="max-height: 60vh; overflow-y: auto;">
@@ -228,8 +142,8 @@
                     <div class="zkr-unit">سورة الإخلاص - سورة الفلق - سورة الناس. <br><span class="zkr-repeat">3 مرات</span></div>
                     <div class="zkr-unit">أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير، رب أسألك خير ما في هذا اليوم وخير ما بعده، وأعوذ بك من شر ما في هذا اليوم وشر ما بعده، رب أعوذ بك من الكسل وسوء الكبر، رب أعوذ بك من عذاب في النار وعذاب في القبر. <br><span class="zkr-repeat">مرة واحدة</span></div>
                     <div class="zkr-unit">اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء لك بنعمتك علي، وأبوء بذنبي فاغفر لي فإنه لا يغفر الذنوب إلا أنت. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">رضيت بالله رباً، وبالإسلام ديناً، وبالإسلام ديناً، وبمحمد صلى الله عليه وسلم نبياً. <br><span class="zkr-repeat">3 مرات</span></div>
-                    <div class="zkr-unit">اللهم إني أسألك العفو والعافية في الدنيا والآخرة، اللهم إني أسألك العفو والعافية: في ديني ودنيااي وأهلي، ومالي، اللهم استر عوراتي، وآمن روعاتي، اللهم احفظني من بين يدي، ومن خلفي، وعن يميني، وعن شمالي، ومن فوقي، وأعوذ بعظمتك أن أغتال من تحتي. <br><span class="zkr-repeat">مرة واحدة</span></div>
+                    <div class="zkr-unit">رضيت بالله رباً، وبالإسلام ديناً، وبمحمد صلى الله عليه وسلم نبياً. <br><span class="zkr-repeat">3 مرات</span></div>
+                    <div class="zkr-unit">اللهم إني أسألك العفو والعافية في الدنيا والآخرة، اللهم إني أسألك العفو والعافية: في ديني ودنياي وأهلي، ومالي، اللهم استر عوراتي، وآمن روعاتي، اللهم احفظني من بين يدي، ومن خلفي، وعن يميني، وعن شمالي، ومن فوقي، وأعوذ بعظمتك أن أغتال من تحتي. <br><span class="zkr-repeat">مرة واحدة</span></div>
                     <div class="zkr-unit">يا حي يا قيوم برحمتك أستغيث أصلح لي شأني كله ولا تكلني إلى نفسي طرفة عين. <br><span class="zkr-repeat">مرة واحدة</span></div>
                     <div class="zkr-unit">بسم الله الذي لا يضر مع اسمه شيء في الأرض ولا في السماء وهو السميع العليم. <br><span class="zkr-repeat">3 مرات</span></div>
                     <div class="zkr-unit">سبحان الله وبحمده. <br><span class="zkr-repeat">100 مرة</span></div>
@@ -273,11 +187,7 @@
 
     <div id="home" class="page">
         <h1>Tromadoro</h1>
-        <div id="live-clock" style="font-size: 0.7rem; color: gray; letter-spacing: 2px; margin-bottom: 5px;"></div>
-        
-        <p id="quote-display" style="font-size: 0.8rem; color: var(--primary); font-style: italic; min-height: 2.4em; margin-bottom: 10px; padding: 0 20px;"></p>
-
-        <div class="glass-card timer-card">
+        <div class="glass-card">
             <div class="total-counter">إجمالي التركيز: <span id="total-minutes">0</span> دقيقة</div>
             <div class="daily-goal-box">
                 <span style="font-size: 0.8rem;">هدف اليوم:</span>
@@ -290,16 +200,12 @@
                 <div id="sec-unit" class="editable-time" contenteditable="true">00</div>
             </div>
             <button class="main-btn" onclick="startTimer()" id="action-btn">ابدأ الجلسة</button>
-            
-            <div class="utility-btns">
-                <button class="sub-btn" onclick="startFiveMinuteChallenge()">⏱️ تحدي الـ 5 دقائق</button>
-                <button onclick="resetTimer()" style="background:none; border:none; color:gray; text-decoration:underline; cursor:pointer; font-size: 0.8rem;">إعادة ضبط</button>
-            </div>
+            <button onclick="resetTimer()" style="background:none; border:none; color:gray; margin-top:15px; text-decoration:underline; cursor:pointer">إعادة ضبط</button>
         </div>
         
         <div class="glass-card" style="padding: 10px 20px; border-style: dashed; border-width: 2px;">
             <p style="margin: 0; font-weight: bold; color: var(--primary); font-size: 0.9rem;">
-                🤲 يا رب تنجح في ثانوية عامة بأعلى مجموع وتدخل الكلية اللي نفسك فيها.
+                🤲 يا رب يا مازن تنجح في ثانوية عامة بأعلى مجموع وتدخل الكلية اللي نفسك فيها.
             </p>
         </div>
 
@@ -313,12 +219,6 @@
             <div class="color-picker" onclick="document.getElementById('custom-color').click()" title="تغيير ألوان التطبيق"></div>
             <label class="upload-label">🖼️ صورة خلفية ثابتة<input type="file" id="bg-input" accept="image/*" onchange="uploadBg(this)" style="display:none"></label>
             <button onclick="clearBg()" style="background:none; border:none; color:red; font-size:0.7rem; margin-top:5px; cursor:pointer">إزالة الخلفية</button>
-        </div>
-
-        <div style="margin-top: 30px; opacity: 0.6; font-family: 'Cinzel', serif;">
-            <p style="font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 5px;">CRAFTED BY</p>
-            <h3 class="mazen-sig" style="color: var(--primary); margin: 0; font-size: 1.2rem;">STUDENT ⚕️</h3>
-            <p style="font-size: 0.6rem; color: gray; margin-top: 5px;">Road to University 2026</p>
         </div>
     </div>
 
@@ -364,12 +264,6 @@
 
     <div id="schedule" class="page">
         <h1>الجدول الدراسي</h1>
-        
-        <div class="glass-card">
-            <h2 style="color: var(--primary); font-size: 1rem; margin-bottom: 15px;">🗓️ تحدي الـ 66 يومًا للأمتحانات</h2>
-            <div id="_final_exam_grid_container" class="_final_exam_grid"></div>
-        </div>
-
         <div class="glass-card">
             <div class="progress-container"><div id="schedule-progress" class="progress-bar"></div></div>
             <button onclick="addDay()" style="background:none; border:1px dashed var(--primary); color:var(--primary); width:100%; padding:12px; border-radius:12px; margin-bottom:20px; cursor:pointer;">+ إضافة يوم جديد للخطة</button>
@@ -396,26 +290,12 @@
         </div>
     </div>
 
-    <div id="_final_exam_overlay" class="_final_exam_overlay">
-        <h2 id="_final_exam_diary_title" style="color: var(--primary); font-family: 'Cinzel';"></h2>
-        <textarea id="_final_exam_diary_input" class="_final_exam_diary_content" placeholder="اكتب خواطرك عن اليوم هنا..."></textarea>
-        <button class="_final_exam_close" onclick="_final_exam_close_diary()">حفظ وإغلاق</button>
-    </div>
-
-    <div id="_weekly_planner_page" class="_weekly_planner_page">
-        <div class="_wp_header">
-            <span class="_wp_back" onclick="_wp_toggle(false)">❮ رجوع</span>
-            <h2 class="_wp_title">الجدول الأسبوعي</h2>
-        </div>
-        <div id="_wp_days_container"></div>
-        <button class="main-btn" onclick="_wp_toggle(false)" style="margin-top: 20px; background: #ff3131; color: #fff;">إغلاق وحفظ</button>
-    </div>
     <nav class="navbar">
         <div class="nav-item active" onclick="showP('muslim-page', this)">🕋</div>
         <div class="nav-item" onclick="showP('home', this)">⏳</div>
         <div class="nav-item" onclick="showP('stopwatch-page', this)">🏁</div>
         <div class="nav-item" onclick="showP('tasks', this)">✅</div>
-        <div class="nav-item" onclick="_wp_toggle(true)">📑</div> <div class="nav-item" onclick="showP('time-block', this)">⏱️</div>
+        <div class="nav-item" onclick="showP('time-block', this)">⏱️</div>
         <div class="nav-item" onclick="showP('schedule', this)">📅</div>
         <div class="nav-item" onclick="showP('subjects', this)">📚</div>
     </nav>
@@ -440,22 +320,9 @@
             'فيزياء': ["محمد عبد المعبود", "محمود مجدي", "كيرلس ناجي", "حسام خليل", "أحمد أبو عرب", "محمد عنتر", "أحمد بركة", "خالد صقر فيزياء", "إسلام أمان", "أحمد رياض", "تامر القاضي", "زكي حجازي", "شريف الشافعي", "علي رياض", "العبقري في الفيزياء", "فيزياء أونلاين", "الفيزياء الممتعة", "بوابة الفيزياء", "مدرستنا فيزياء", "المهندس في الفيزياء"],
             'كيمياء': ["خالد صقر", "محمد عبد الجواد", "عبد الله حبشي", "محمد صقر", "محمد حامد", "إيهاب سعيد", "سامح إبراهيم", "مصطفى يوسف", "هشام نصار", "علاء علي", "أحمد مسعد", "شريف فتحي", "محمد غنيم", "عمرو الصيفي", "باسم سمير", "حازم عثمان", "عصام فوزي", "فتحي محمد", "ياسين بركات", "الكيمياء في كبسولة"],
             'رياضيات': ["أحمد الفواخري", "لطفي زهران", "سعد عبد الموجود", "ماهر بكر", "محمد الديمردواش", "فتحي remses", "أحمد غريب", "شريف فتحي", "إبراهيم منصف", "محمد عبد السميع", "علاء أبو الخير", "إسلام شاكر", "أيمن الغزالي", "سيد فوزي", "عبد الله محمد", "علي الخوارزمي", "محمد بركات", "نادي الرياضيات", "الرياضيات أونلاين", "باشا رياضة"],
-            'أحياء': ["محمد أيمن", "موسى الجوهري", "حيدر محمد", "أحمد الجوهري", "أحمد الشرقاوي", "حسن محرم", "سمر صبري", "عبد الرحمن الغرباوي", "محمد الساعي", "محمد نصر", "أيمن صبري", "إبراهيم حسين", "باسم محمود", "خالد غانم", "سعد بدوي", "عاطف السقا", "عمر محمد", "محمد المليجي", "ناجي صبري", "هاني فرحات"],
+            'أحياء': ["محمد أيمن", "موسى الجوهري", "حيدر محمد", "أحمد الجوهري", "أحمد الشرقاوي", "حسن محرم", "سمر صبري", "عبد الرحمن الغرباوي", "محمد الساعي", "محمد نصر", "أيمن صبري", "إبراهيم حسين", "بسام محمود", "خالد غانم", "سعد بدوي", "عاطف السقا", "عمر محمد", "محمد المليجي", "ناجي صبري", "هاني فرحات"],
             'إنجليزي': ["أحمد أبو زيد", "إسلام تاج", "محمد عمر", "علي الهواري", "أحمد جلال", "يحيى آدم", "مستر إنجليزي", "قناة ذاكرلي إنجليزي", "أحمد حسن", "حاتم شريف", "خالد جلال", "سيد إبراهيم", "طارق علي", "عادل عبد الغني", "محمد فوزي", "محمود كمال", "نادر غانم", "هشام توفيق", "وليد خالد", "ياسر جابر"]
         };
-
-        const quotes = [
-            "عاش يا كينج.. هانت خلاص!",
-            "افتكر حلمك واليوم اللي مستنيه في الجامعة.",
-            "ربنا مش بيضيع تعب حد، استمر.",
-            "التركيز دلوقتي يعني راحة بعدين.",
-            "صليت على النبي النهاردة؟",
-            "كل دقيقة مذاكرة بتقربك خطوة من هدفك.",
-            "النجاح ملوش طريق مختصر، كمل.",
-            "المستقبل بيتشكل باللي بتعمله دلوقتي.",
-            "أنت قدها، ركز بس.",
-            "التعب مؤقت، لكن النتيجة بتدوم العمر كله."
-        ];
 
         let timerInt, isRunning = false, totalSecs = 0, sessionsTotalMinutes = 0, initialMinutes = 0;
         let swInt, swRunning = false, swSecs = 0, completedSessions = 0;
@@ -483,19 +350,7 @@
             localStorage.setItem('tromadoro_data', JSON.stringify(data));
         }
 
-        function updateQuote() {
-            document.getElementById('quote-display').innerText = quotes[Math.floor(Math.random() * quotes.length)];
-        }
-
         function loadAll() {
-            setInterval(() => {
-                const clockEl = document.getElementById('live-clock');
-                if(clockEl) clockEl.innerText = new Date().toLocaleTimeString('en-GB');
-            }, 1000);
-
-            updateQuote();
-            setInterval(updateQuote, 30000);
-
             const raw = localStorage.getItem('tromadoro_data');
             if (!raw) {
                 const defaultPrayers = ["صلاة الفجر","صلاة الضحى","صلاة الظهر","صلاة العصر","صلاة المغرب","صلاة العشاء","قيام الليل والوتر","الورد القرآني"];
@@ -517,39 +372,20 @@
             loadBg(); updateAllProgress();
         }
 
-        function startFiveMinuteChallenge() {
-            if(isRunning) resetTimer();
-            document.getElementById('min-unit').innerText = "05";
-            document.getElementById('sec-unit').innerText = "00";
-            startTimer();
-        }
-
-        function handleCheckClick(dotEl) {
-            const row = dotEl.parentElement;
-            const isDone = row.classList.toggle('completed');
-            dotEl.innerText = isDone ? '⭐' : "";
-            saveAll();
-            updateAllProgress();
-        }
-
         function updateAllProgress() { updateProgress('prayer-list-new', 'muslim-progress'); updateProgress('task-list', 'tasks-progress'); updateProgress('block-list', 'blocks-progress'); updateScheduleProgress(); }
-        
         function renderTaskRow(text, done) {
             const d = document.createElement('div'); d.className = `item-row ${done ? 'completed' : ''}`;
-            const dotContent = done ? "⭐" : "";
-            d.innerHTML = `<div class="check-dot" onclick="handleCheckClick(this)">${dotContent}</div><div class="task-text" contenteditable="true" oninput="saveAll()">${text}</div><div onclick="this.parentElement.remove(); saveAll(); updateProgress('task-list', 'tasks-progress')" style="color:red; cursor:pointer">×</div>`;
+            d.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateProgress('task-list', 'tasks-progress')"></div><div class="task-text" contenteditable="true" oninput="saveAll()">${text}</div><div onclick="this.parentElement.remove(); saveAll(); updateProgress('task-list', 'tasks-progress')" style="color:red; cursor:pointer">×</div>`;
             document.getElementById('task-list').appendChild(d);
         }
         function renderPrayerRow(text, done) {
             const d = document.createElement('div'); d.className = `item-row ${done ? 'completed' : ''}`;
-            const dotContent = done ? "⭐" : "";
-            d.innerHTML = `<div class="check-dot" onclick="handleCheckClick(this)">${dotContent}</div><div class="task-text">${text}</div>`;
+            d.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateProgress('prayer-list-new', 'muslim-progress')"></div><div class="task-text">${text}</div>`;
             document.getElementById('prayer-list-new').appendChild(d);
         }
         function renderBlockRow(time, text, done) {
             const d = document.createElement('div'); d.className = `item-row ${done ? 'completed' : ''}`;
-            const dotContent = done ? "⭐" : "";
-            d.innerHTML = `<div class="check-dot" onclick="handleCheckClick(this)">${dotContent}</div><div class="time-label">${time}</div><div class="task-text" contenteditable="true" oninput="saveAll()">${text}</div><div onclick="this.parentElement.remove(); saveAll(); updateProgress('block-list', 'blocks-progress')" style="color:red; cursor:pointer">×</div>`;
+            d.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateProgress('block-list', 'blocks-progress')"></div><div class="time-label">${time}</div><div class="task-text" contenteditable="true" oninput="saveAll()">${text}</div><div onclick="this.parentElement.remove(); saveAll(); updateProgress('block-list', 'blocks-progress')" style="color:red; cursor:pointer">×</div>`;
             document.getElementById('block-list').appendChild(d);
         }
         function renderDayBox(title, dayId, tasks = []) {
@@ -558,150 +394,38 @@
             container.appendChild(d);
             tasks.forEach(t => {
                 const taskRow = document.createElement('div'); taskRow.className = `item-row ${t.done ? 'completed' : ''}`;
-                const dotContent = t.done ? "⭐" : "";
-                taskRow.innerHTML = `<div class="check-dot" onclick="handleCheckClick(this)">${dotContent}</div><div class="task-text" contenteditable="true" oninput="saveAll()">${t.text}</div><div onclick="this.parentElement.remove(); saveAll(); updateScheduleProgress()" style="color:red; cursor:pointer; font-size:0.8rem">×</div>`;
+                taskRow.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateScheduleProgress()"></div><div class="task-text" contenteditable="true" oninput="saveAll()">${t.text}</div><div onclick="this.parentElement.remove(); saveAll(); updateScheduleProgress()" style="color:red; cursor:pointer; font-size:0.8rem">×</div>`;
                 document.getElementById(dayId).appendChild(taskRow);
             });
         }
-
         function updateProgress(listId, barId) { const list = document.getElementById(listId); if (!list) return; const items = list.querySelectorAll('.item-row'), completed = list.querySelectorAll('.item-row.completed'); const percent = items.length === 0 ? 0 : (completed.length / items.length) * 100; const bar = document.getElementById(barId); if (bar) bar.style.width = percent + '%'; }
         function updateScheduleProgress() { const totalItems = document.querySelectorAll('#schedule-container .item-row'), completedItems = document.querySelectorAll('#schedule-container .item-row.completed'); const percent = totalItems.length === 0 ? 0 : (completedItems.length / totalItems.length) * 100; const bar = document.getElementById('schedule-progress'); if (bar) bar.style.width = percent + '%'; }
         function uploadBg(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = function(e) { const imgData = e.target.result; document.body.style.backgroundImage = `url('${imgData}')`; const request = indexedDB.open("TromadoroDB", 1); request.onupgradeneeded = (ev) => ev.target.result.createObjectStore("settings"); request.onsuccess = (ev) => { ev.target.result.transaction("settings", "readwrite").objectStore("settings").put(imgData, "bgImage"); }; }; reader.readAsDataURL(file); }
         function loadBg() { const request = indexedDB.open("TromadoroDB", 1); request.onupgradeneeded = (ev) => ev.target.result.createObjectStore("settings"); request.onsuccess = (ev) => { ev.target.result.transaction("settings").objectStore("settings").get("bgImage").onsuccess = (e) => { if (e.target.result) document.body.style.backgroundImage = `url('${e.target.result}')`; }; }; }
-        function clearBg() { document.body.style.backgroundImage = 'radial-gradient(circle at center, #111 0%, #000 100%), url("https://www.transparenttextures.com/patterns/stardust.png")'; indexedDB.open("TromadoroDB", 1).onsuccess = (ev) => { ev.target.result.transaction("settings", "readwrite").objectStore("settings").delete("bgImage"); }; }
+        function clearBg() { document.body.style.backgroundImage = 'none'; indexedDB.open("TromadoroDB", 1).onsuccess = (ev) => { ev.target.result.transaction("settings", "readwrite").objectStore("settings").delete("bgImage"); }; }
         function setCustomColor(color) { document.documentElement.style.setProperty('--primary', color); document.documentElement.style.setProperty('--border', color + '66'); saveAll(); }
         function showTeachers(subj) { document.getElementById('subject-list').style.display = 'none'; document.getElementById('teacher-view').style.display = 'block'; document.getElementById('subj-title').innerText = subj; const container = document.getElementById('teachers-container'); container.innerHTML = ""; teachersData[subj].forEach((name, index) => { const div = document.createElement('div'); div.className = 'teacher-row'; div.innerHTML = `<span>${name}</span> <span class="rank-tag">TOP #${index + 1}</span>`; container.appendChild(div); }); }
         function hideTeachers() { document.getElementById('subject-list').style.display = 'block'; document.getElementById('teacher-view').style.display = 'none'; }
         function showP(id, el) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.getElementById(id).classList.add('active'); document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active')); el.classList.add('active'); }
-        
         function startTimer() {
             const mDisp = document.getElementById('min-unit'), sDisp = document.getElementById('sec-unit'), btn = document.getElementById('action-btn');
             if (!isRunning) {
                 let minsInput = parseInt(mDisp.innerText) || 0, secsInput = parseInt(sDisp.innerText) || 0; totalSecs = (minsInput * 60) + secsInput; if (totalSecs <= 0) return; initialMinutes = minsInput; isRunning = true; btn.innerText = "توقف"; mDisp.contentEditable = sDisp.contentEditable = "false";
-                document.body.classList.add('deep-focus');
                 timerInt = setInterval(() => {
                     if (totalSecs > 0) { totalSecs--; mDisp.innerText = Math.floor(totalSecs / 60); sDisp.innerText = (totalSecs % 60).toString().padStart(2, '0'); }
-                    else { 
-                        clearInterval(timerInt); isRunning = false; sessionsTotalMinutes += initialMinutes; document.getElementById('total-minutes').innerText = sessionsTotalMinutes; completedSessions++; document.getElementById('completed-sessions').innerText = completedSessions; saveAll(); alarm.play(); 
-                        document.body.style.boxShadow = "inset 0 0 100px var(--primary)";
-                        document.body.classList.remove('deep-focus');
-                        setTimeout(() => { document.body.style.boxShadow = "none"; alert("عاش يا بطل!"); resetTimer(); }, 1000);
-                    }
+                    else { clearInterval(timerInt); isRunning = false; sessionsTotalMinutes += initialMinutes; document.getElementById('total-minutes').innerText = sessionsTotalMinutes; completedSessions++; document.getElementById('completed-sessions').innerText = completedSessions; saveAll(); alarm.play(); alert("عاش يا بطل!"); resetTimer(); }
                 }, 1000);
-            } else { 
-                clearInterval(timerInt); 
-                isRunning = false; 
-                btn.innerText = "استئناف";
-                document.body.classList.remove('deep-focus');
-            }
+            } else { clearInterval(timerInt); isRunning = false; btn.innerText = "استئناف"; }
         }
-
-        function resetTimer() { 
-            clearInterval(timerInt); 
-            isRunning = false; 
-            document.getElementById('min-unit').innerText = "25"; 
-            document.getElementById('sec-unit').innerText = "00"; 
-            document.getElementById('min-unit').contentEditable = document.getElementById('sec-unit').contentEditable = "true"; 
-            document.getElementById('action-btn').innerText = "ابدأ الجلسة"; 
-            document.body.classList.remove('deep-focus');
-        }
+        function resetTimer() { clearInterval(timerInt); isRunning = false; document.getElementById('min-unit').innerText = "25"; document.getElementById('sec-unit').innerText = "00"; document.getElementById('min-unit').contentEditable = document.getElementById('sec-unit').contentEditable = "true"; document.getElementById('action-btn').innerText = "ابدأ الجلسة"; }
         function toggleStopwatch() { const btn = document.getElementById('sw-btn'), mDisp = document.getElementById('sw-min'), sDisp = document.getElementById('sw-sec'); if (!swRunning) { swRunning = true; btn.innerText = "توقف"; swInt = setInterval(() => { swSecs++; mDisp.innerText = Math.floor(swSecs / 60).toString().padStart(2, '0'); sDisp.innerText = (swSecs % 60).toString().padStart(2, '0'); }, 1000); } else { clearInterval(swInt); swRunning = false; btn.innerText = "استئناف"; } }
         function resetStopwatch() { clearInterval(swInt); swRunning = false; swSecs = 0; document.getElementById('sw-min').innerText = "00"; document.getElementById('sw-sec').innerText = "00"; document.getElementById('sw-btn').innerText = "ابدأ العداد"; }
         function addTask() { const inp = document.getElementById('task-in'), val = inp.value; if (!val) return; renderTaskRow(val, false); inp.value = ""; saveAll(); updateProgress('task-list', 'tasks-progress'); }
         function convertTo12Hour(time) { let [h, m] = time.split(':'); let ampm = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12; return `${h}:${m} ${ampm}`; }
         function addTimeBlock() { const timeIn = document.getElementById('block-time'), descIn = document.getElementById('block-desc'); if (!timeIn.value || !descIn.value) return; renderBlockRow(convertTo12Hour(timeIn.value), descIn.value, false); descIn.value = ""; saveAll(); updateProgress('block-list', 'blocks-progress'); }
         function addDay() { const dayId = 'day-' + Date.now(); renderDayBox('اسم اليوم...', dayId, []); saveAll(); updateScheduleProgress(); }
-        function addSubTask(containerId) { const container = document.getElementById(containerId), taskRow = document.createElement('div'); taskRow.className = 'item-row'; taskRow.style.margin = "5px 0"; taskRow.innerHTML = `<div class="check-dot" onclick="handleCheckClick(this)"></div><div class="task-text" contenteditable="true" oninput="saveAll()"></div><div onclick="this.parentElement.remove(); saveAll(); updateScheduleProgress()" style="color:red; cursor:pointer; font-size:0.8rem">×</div>`; container.appendChild(taskRow); saveAll(); updateScheduleProgress(); }
+        function addSubTask(containerId) { const container = document.getElementById(containerId), taskRow = document.createElement('div'); taskRow.className = 'item-row'; taskRow.style.margin = "5px 0"; taskRow.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateScheduleProgress()"></div><div class="task-text" contenteditable="true" oninput="saveAll()"></div><div onclick="this.parentElement.remove(); saveAll(); updateScheduleProgress()" style="color:red; cursor:pointer; font-size:0.8rem">×</div>`; container.appendChild(taskRow); saveAll(); updateScheduleProgress(); }
         function setTheme(cls) { document.body.className = cls; if (cls === '') setCustomColor('#00ffcc'); else if (cls === 'dark-red') setCustomColor('#ff3131'); else if (cls === 'dark-blue') setCustomColor('#00d2ff'); else if (cls === 'dark-purple') setCustomColor('#bc13fe'); saveAll(); }
-
-        /* --- FINAL EXAM MODULE LOGIC --- */
-        let _final_exam_current_day = null;
-        function _final_exam_init() {
-            const container = document.getElementById('_final_exam_grid_container');
-            if(!container) return;
-            const storedData = JSON.parse(localStorage.getItem('_final_exam_data') || '{"completed": [], "diaries": {}}');
-            
-            for (let i = 66; i >= 1; i--) {
-                const dayEl = document.createElement('div');
-                dayEl.className = '_final_exam_day' + (storedData.completed.includes(i) ? ' completed' : '');
-                dayEl.innerHTML = `<span>${i}</span><div class="_final_exam_diary_btn" onclick="_final_exam_open_diary(${i}, event)">عامل إيه النهاردة؟</div>`;
-                dayEl.onclick = (e) => { if(e.target.className !== '_final_exam_diary_btn') _final_exam_toggle_day(i, dayEl); };
-                container.appendChild(dayEl);
-            }
-        }
-
-        function _final_exam_toggle_day(num, el) {
-            let data = JSON.parse(localStorage.getItem('_final_exam_data') || '{"completed": [], "diaries": {}}');
-            if (data.completed.includes(num)) {
-                data.completed = data.completed.filter(n => n !== num);
-                el.classList.remove('completed');
-            } else {
-                data.completed.push(num);
-                el.classList.add('completed');
-            }
-            localStorage.setItem('_final_exam_data', JSON.stringify(data));
-        }
-
-        function _final_exam_open_diary(num, event) {
-            event.stopPropagation();
-            _final_exam_current_day = num;
-            const data = JSON.parse(localStorage.getItem('_final_exam_data') || '{"completed": [], "diaries": {}}');
-            document.getElementById('_final_exam_diary_title').innerText = `يوميات اليوم رقم ${num}`;
-            document.getElementById('_final_exam_diary_input').value = data.diaries[num] || "";
-            document.getElementById('_final_exam_overlay').style.display = 'flex';
-        }
-
-        function _final_exam_close_diary() {
-            const text = document.getElementById('_final_exam_diary_input').value;
-            let data = JSON.parse(localStorage.getItem('_final_exam_data') || '{"completed": [], "diaries": {}}');
-            data.diaries[_final_exam_current_day] = text;
-            localStorage.setItem('_final_exam_data', JSON.stringify(data));
-            document.getElementById('_final_exam_overlay').style.display = 'none';
-        }
-
-        /* ====================================================== */
-        /* --- START OF WEEKLY STUDY PLANNER LOGIC (NEW) --- */
-        /* ====================================================== */
-        const _wp_days = ["السبت", "الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة"];
-        
-        function _wp_init() {
-            const container = document.getElementById('_wp_days_container');
-            const stored = JSON.parse(localStorage.getItem('_wp_data') || '{}');
-            
-            _wp_days.forEach(day => {
-                const dayData = stored[day] || { sub: "", det: "" };
-                const card = document.createElement('div');
-                card.className = '_wp_day_card';
-                card.innerHTML = `
-                    <div class="_wp_day_label">${day}</div>
-                    <div class="_wp_input_group">
-                        <input type="text" class="_wp_input_subject" placeholder="اسم المادة" value="${dayData.sub}" oninput="_wp_save('${day}', 'sub', this.value)">
-                        <textarea class="_wp_input_details" placeholder="هذاكر إيه في المادة دي؟" oninput="_wp_save('${day}', 'det', this.value)">${dayData.det}</textarea>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function _wp_save(day, field, val) {
-            let data = JSON.parse(localStorage.getItem('_wp_data') || '{}');
-            if (!data[day]) data[day] = { sub: "", det: "" };
-            data[day][field] = val;
-            localStorage.setItem('_wp_data', JSON.stringify(data));
-        }
-
-        function _wp_toggle(show) {
-            const page = document.getElementById('_weekly_planner_page');
-            page.style.display = show ? 'flex' : 'none';
-            if(show) {
-                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-                // Highlight the 5th icon (index 4) as our new planner tab
-                document.querySelectorAll('.navbar .nav-item')[4].classList.add('active');
-            }
-        }
-        /* ====================================================== */
-        /* --- END OF WEEKLY STUDY PLANNER LOGIC --- */
-        /* ====================================================== */
     </script>
 </body>
 </html>
