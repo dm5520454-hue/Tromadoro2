@@ -59,12 +59,14 @@
         
         .day-box { border: 1px solid var(--border); border-radius: 15px; padding: 15px; margin-bottom: 15px; text-align: right; position: relative; direction: rtl; background: rgba(255,255,255,0.02); }
         
-        .floating-btn { position: fixed; bottom: 100px; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.75rem; z-index: 1000; display: flex; align-items: center; gap: 6px; }
-        .btn-contact { left: 15px; background: #0088cc; color: #fff; box-shadow: 0 0 10px #0088cc; animation: glow-blue 2s infinite; }
-        .btn-group { right: 15px; background: var(--primary); color: #000; box-shadow: 0 0 10px var(--primary); animation: glow-primary 2s infinite; }
+        .floating-btn { position: fixed; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.75rem; z-index: 1000; display: flex; align-items: center; gap: 6px; }
+        .btn-contact { bottom: 100px; left: 15px; background: #0088cc; color: #fff; box-shadow: 0 0 10px #0088cc; animation: glow-blue 2s infinite; }
+        .btn-group { bottom: 100px; right: 15px; background: var(--primary); color: #000; box-shadow: 0 0 10px var(--primary); animation: glow-primary 2s infinite; }
+        .btn-camp { bottom: 160px; right: 15px; background: #ff3131; color: #fff; box-shadow: 0 0 10px #ff3131; animation: glow-red 2s infinite; }
         
         @keyframes glow-blue { 0%, 100% { box-shadow: 0 0 5px #0088cc; } 50% { box-shadow: 0 0 15px #0088cc; } }
         @keyframes glow-primary { 0%, 100% { box-shadow: 0 0 5px var(--primary); } 50% { box-shadow: 0 0 15px var(--primary); } }
+        @keyframes glow-red { 0%, 100% { box-shadow: 0 0 5px #ff3131; } 50% { box-shadow: 0 0 15px #ff3131; } }
         
         .theme-btn { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; display: inline-block; margin: 5px; vertical-align: middle; }
         .navbar { position: fixed; bottom: 0; width: 100%; background: #000; display: flex; justify-content: space-around; padding: 18px 0; border-top: 1px solid var(--border); z-index: 1001; }
@@ -108,6 +110,7 @@
     
     <a href="https://t.me/Death6is" target="_blank" class="floating-btn btn-contact">👤 كلم مازن</a>
     <a href="https://t.me/+R6hvECiujXsyN2U0" target="_blank" class="floating-btn btn-group">🚀 الجروب</a>
+    <a href="https://t.me/+3XfKN-fG130wZWRk" target="_blank" class="floating-btn btn-camp">🎯 معسكر متابعة المنهج والمراجعات</a>
 
     <div id="muslim-page" class="page active">
         <h1>زاد المسلم 🕋</h1>
