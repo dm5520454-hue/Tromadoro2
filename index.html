@@ -23,7 +23,6 @@
             --glass: rgba(15, 15, 15, 0.9); 
             --border: rgba(0, 255, 204, 0.4); 
         }
-
         body { 
             background: #000; color: #e0e0e0; font-family: 'Tajawal', sans-serif; 
             margin: 0; padding-bottom: 120px; text-align: center; transition: 0.5s; 
@@ -40,9 +39,6 @@
         .timer-wrapper { display: flex; justify-content: center; align-items: center; gap: 5px; margin: 15px 0; direction: ltr; }
         .editable-time { font-size: 5rem; color: var(--primary); font-family: 'Cinzel', monospace; outline: none; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 15px; text-shadow: 0 0 8px var(--primary); }
         
-        .progress-container { width: 100%; background: rgba(255,255,255,0.05); height: 10px; border-radius: 10px; margin-bottom: 15px; overflow: hidden; border: 1px solid var(--border); }
-        .progress-bar { height: 100%; width: 0%; background: var(--primary); box-shadow: 0 0 10px var(--primary); transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-
         .main-btn { 
             background: var(--primary); color: #000; border: none; padding: 18px; 
             border-radius: 15px; font-weight: bold; width: 100%; cursor: pointer; 
@@ -53,10 +49,8 @@
         .item-row { display: flex; flex-direction: row-reverse; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; margin-bottom: 10px; border-right: 4px solid var(--primary); text-align: right; direction: rtl; }
         .task-text { flex: 1; outline: none; text-align: right; min-height: 1.2em; }
         
-        .check-dot { width: 18px; height: 18px; border: 2px solid var(--primary); border-radius: 50%; cursor: pointer; flex-shrink: 0; box-shadow: inset 0 0 3px var(--primary); transition: 0.3s; }
+        .check-dot { width: 18px; height: 18px; border: 2px solid var(--primary); border-radius: 50%; cursor: pointer; flex-shrink: 0; box-shadow: inset 0 0 3px var(--primary); }
         .completed { opacity: 0.4; text-decoration: line-through; }
-        .completed .check-dot { background: var(--primary); }
-        
         .day-box { border: 1px solid var(--border); border-radius: 15px; padding: 15px; margin-bottom: 15px; text-align: right; position: relative; direction: rtl; background: rgba(255,255,255,0.02); }
         
         .floating-btn { position: fixed; bottom: 100px; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.75rem; z-index: 1000; display: flex; align-items: center; gap: 6px; }
@@ -74,13 +68,6 @@
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .azkar-item { background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 15px; margin-bottom: 10px; overflow: hidden; text-align: right; }
-        .azkar-header { padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--primary); font-weight: bold; font-size: 0.9rem; }
-        .azkar-content { padding: 0 15px; max-height: 0; overflow: hidden; transition: all 0.4s ease; font-size: 0.8rem; line-height: 1.8; color: #bbb; }
-        .azkar-item.open .azkar-content { max-height: 2000px; padding: 15px; border-top: 1px solid var(--border); background: rgba(0,0,0,0.3); }
-        .zkr-unit { margin-bottom: 15px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px; }
-        .zkr-repeat { color: var(--primary); font-weight: bold; font-size: 0.75rem; border: 1px solid var(--primary); padding: 2px 8px; border-radius: 5px; display: inline-block; margin-top: 5px; }
-
         .time-label { font-family: 'Cinzel', serif; color: var(--primary); font-weight: bold; min-width: 80px; direction: ltr; border-left: 1px solid var(--border); padding-left: 10px; margin-left: 10px; text-align: right; }
         .time-input { background: none; border: 1px solid var(--border); border-radius: 10px; color: #fff; padding: 10px; outline: none; font-family: 'Tajawal'; text-align: right; }
         .subject-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -96,101 +83,31 @@
         
         .day-tasks-container { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 10px; }
         .add-subtask-btn { background: none; border: 1px solid var(--primary); color: var(--primary); font-size: 0.7rem; padding: 5px 10px; border-radius: 8px; cursor: pointer; margin-top: 5px; }
-
-        .daily-goal-box { margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 10px; }
-        .goal-input { width: 40px; background: rgba(255,255,255,0.1); border: 1px solid var(--border); color: var(--primary); border-radius: 8px; text-align: center; font-weight: bold; padding: 4px; outline: none; }
-        .goal-counter { font-size: 0.9rem; font-weight: bold; color: #fff; }
     </style>
 </head>
 <body onload="initPWA(); loadAll()">
-    
     <audio id="alarm" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
     
     <a href="https://t.me/Death6is" target="_blank" class="floating-btn btn-contact">👤 كلم مازن</a>
     <a href="https://t.me/+R6hvECiujXsyN2U0" target="_blank" class="floating-btn btn-group">🚀 الجروب</a>
 
-    <div id="muslim-page" class="page active">
-        <h1>زاد المسلم 🕋</h1>
-        
-        <div class="glass-card">
-            <p style="font-size:0.9rem; margin-bottom:12px; color: var(--primary); font-weight: bold;">الفرائض والورد اليومي 🤲</p>
-            <div class="progress-container"><div id="muslim-progress" class="progress-bar"></div></div>
-            
-            <div id="prayer-list-new">
-                </div>
-        </div>
-
-        <div class="glass-card" style="max-height: 60vh; overflow-y: auto;">
-            <p style="font-size:0.9rem; margin-bottom:12px; color: var(--primary); font-weight: bold;">أذكار الحصن 🛡️</p>
-            
-            <div class="azkar-item" onclick="this.classList.toggle('open')">
-                <div class="azkar-header">🌅 أذكار الاستيقاظ <span>▼</span></div>
-                <div class="azkar-content">
-                    <div class="zkr-unit">الحمد لله الذي أحيانا بعد ما أماتنا وإليه النشور. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">الحمد لله الذي عافاني في جسدي، ورد علي روحي، وأذن لي بذكِره. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">لا إله إلا الله وحده لا شريك له، له الملك وله الحمد، وهو على كل شيء قدير، سبحان الله، والحمد لله، ولا إله إلا الله، والله أكبر، ولا حول ولا قوة إلا بالله العلي العظيم، رب اغفر لي. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                </div>
-            </div>
-
-            <div class="azkar-item" onclick="this.classList.toggle('open')">
-                <div class="azkar-header">☀️ أذكار الصباح <span>▼</span></div>
-                <div class="azkar-content">
-                    <div class="zkr-unit">أعوذ بالله من الشيطان الرجيم: اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ (آية الكرسي). <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">سورة الإخلاص - سورة الفلق - سورة الناس. <br><span class="zkr-repeat">3 مرات</span></div>
-                    <div class="zkr-unit">أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير، رب أسألك خير ما في هذا اليوم وخير ما بعده، وأعوذ بك من شر ما في هذا اليوم وشر ما بعده، رب أعوذ بك من الكسل وسوء الكبر، رب أعوذ بك من عذاب في النار وعذاب في القبر. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء لك بنعمتك علي، وأبوء بذنبي فاغفر لي فإنه لا يغفر الذنوب إلا أنت. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">رضيت بالله رباً، وبالإسلام ديناً، وبمحمد صلى الله عليه وسلم نبياً. <br><span class="zkr-repeat">3 مرات</span></div>
-                    <div class="zkr-unit">اللهم إني أسألك العفو والعافية في الدنيا والآخرة، اللهم إني أسألك العفو والعافية: في ديني ودنياي وأهلي، ومالي، اللهم استر عوراتي، وآمن روعاتي، اللهم احفظني من بين يدي، ومن خلفي، وعن يميني، وعن شمالي، ومن فوقي، وأعوذ بعظمتك أن أغتال من تحتي. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">يا حي يا قيوم برحمتك أستغيث أصلح لي شأني كله ولا تكلني إلى نفسي طرفة عين. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">بسم الله الذي لا يضر مع اسمه شيء في الأرض ولا في السماء وهو السميع العليم. <br><span class="zkr-repeat">3 مرات</span></div>
-                    <div class="zkr-unit">سبحان الله وبحمده. <br><span class="zkr-repeat">100 مرة</span></div>
-                </div>
-            </div>
-
-            <div class="azkar-item" onclick="this.classList.toggle('open')">
-                <div class="azkar-header">🌙 أذكار المساء <span>▼</span></div>
-                <div class="azkar-content">
-                    <div class="zkr-unit">أعوذ بالله من الشيطان الرجيم: آية الكرسي. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">أمسينا وأمسى الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له... <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">اللهم بك أمسينا، وبك أصبحنا، وبك نحيا، وبك نموت، وإليك المصير. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">أعوذ بكلمات الله التامات من شر ما خلق. <br><span class="zkr-repeat">3 مرات</span></div>
-                    <div class="zkr-unit">اللهم صل وسلم على نبينا محمد. <br><span class="zkr-repeat">10 مرات</span></div>
-                    <div class="zkr-unit">سورة الإخلاص والمعوذتين. <br><span class="zkr-repeat">3 مرات</span></div>
-                </div>
-            </div>
-
-            <div class="azkar-item" onclick="this.classList.toggle('open')">
-                <div class="azkar-header">💤 أذكار النوم <span>▼</span></div>
-                <div class="azkar-content">
-                    <div class="zkr-unit">باسمك ربي وضعت جنبي، وبك أرفعه، فإن أمسكت نفسي فارحمها، وإن أرسلتها فاحفظها، بما تحفظ به عبادك الصالحين. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">اللهم قني عذابك يوم تبعث عبادك. <br><span class="zkr-repeat">3 مرات</span></div>
-                    <div class="zkr-unit">باسمك اللهم أموت وأحيا. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">يجمع كفيه ثم ينفث فيهما فيقرأ (الإخلاص والفلق والناس) ثم يمسح بهما ما استطاع من جسده. <br><span class="zkr-repeat">3 مرات</span></div>
-                </div>
-            </div>
-
-            <div class="azkar-item" onclick="this.classList.toggle('open')">
-                <div class="azkar-header">📿 بعد الصلاة <span>▼</span></div>
-                <div class="azkar-content">
-                    <div class="zkr-unit">أستغفر الله (3 مرات). اللهم أنت السلام ومنك السلام، تباركت يا ذا الجلال والإكرام. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                    <div class="zkr-unit">سبحان الله (33)، والحمد لله (33)، والله أكبر (33). <br><span class="zkr-repeat">ثم تمام المائة: لا إله إلا الله وحده لا شريك له...</span></div>
-                    <div class="zkr-unit">قراءة آية الكرسي بعد كل صلاة. <br><span class="zkr-repeat">مرة واحدة</span></div>
-                </div>
-            </div>
-
-            <a href="https://quran.com/ar" target="_blank" style="display:block; margin-top:15px; padding:12px; border:1px solid var(--primary); border-radius:12px; color:var(--primary); text-decoration:none; font-weight:bold; font-size:0.8rem;">📖 تصفح المصحف الكريم</a>
-        </div>
-    </div>
-
-    <div id="home" class="page">
+    <div id="home" class="page active">
         <h1>Tromadoro</h1>
+
+        <div class="glass-card">
+            <p style="font-size:0.9rem; margin-bottom:12px; color: var(--primary); font-weight: bold;">مواقيت الإيمان 🕋</p>
+            <div id="prayer-list">
+                <div class="item-row"><div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll()"></div><div class="task-text">صليت الفجر</div></div>
+                <div class="item-row"><div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll()"></div><div class="task-text">صليت الظهر</div></div>
+                <div class="item-row"><div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll()"></div><div class="task-text">صليت العصر</div></div>
+                <div class="item-row"><div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll()"></div><div class="task-text">صليت المغرب</div></div>
+                <div class="item-row"><div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll()"></div><div class="task-text">صليت العشاء</div></div>
+                <div class="item-row"><div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll()"></div><div class="task-text">قيام الليل</div></div>
+            </div>
+        </div>
+
         <div class="glass-card">
             <div class="total-counter">إجمالي التركيز: <span id="total-minutes">0</span> دقيقة</div>
-            <div class="daily-goal-box">
-                <span style="font-size: 0.8rem;">هدف اليوم:</span>
-                <input type="number" id="daily-goal-input" class="goal-input" value="0" oninput="saveAll()">
-                <span class="goal-counter">إنجاز: <span id="completed-sessions" style="color: var(--primary);">0</span></span>
-            </div>
             <div class="timer-wrapper">
                 <div id="min-unit" class="editable-time" contenteditable="true">25</div>
                 <div style="font-size: 3.5rem; color: var(--primary);">:</div>
@@ -217,11 +134,16 @@
             <label class="upload-label">🖼️ صورة خلفية ثابتة<input type="file" id="bg-input" accept="image/*" onchange="uploadBg(this)" style="display:none"></label>
             <button onclick="clearBg()" style="background:none; border:none; color:red; font-size:0.7rem; margin-top:5px; cursor:pointer">إزالة الخلفية</button>
         </div>
+
+        <p style="font-size: 0.8rem; color: var(--primary); margin-top: 20px; opacity: 0.8;">
+            خليتهالك ف الاول علشان اول م تفتح التطبيق تفتكر الصلاه🧐 مازن بقا😎😎😎
+        </p>
     </div>
 
     <div id="stopwatch-page" class="page">
         <h1>السباق 🏁</h1>
         <div class="glass-card">
+            <p style="color: #888; font-size: 0.8rem; margin-bottom: 10px;">احسب وقتك بالثانية</p>
             <div class="timer-wrapper">
                 <div id="sw-min" class="editable-time">00</div>
                 <div style="font-size: 3.5rem; color: var(--primary);">:</div>
@@ -235,7 +157,6 @@
     <div id="tasks" class="page">
         <h1>المهام العاجلة</h1>
         <div class="glass-card">
-            <div class="progress-container"><div id="tasks-progress" class="progress-bar"></div></div>
             <div id="task-list"></div>
             <div style="display:flex; gap:10px; margin-top:15px">
                 <input type="text" id="task-in" placeholder="أضف مهمة عامة..." class="time-input" style="flex:1">
@@ -247,7 +168,6 @@
     <div id="time-block" class="page">
         <h1>Time Block</h1>
         <div class="glass-card">
-            <div class="progress-container"><div id="blocks-progress" class="progress-bar"></div></div>
             <div id="block-list"></div>
             <div style="display:flex; flex-direction:column; gap:10px; margin-top:15px">
                 <div style="display:flex; gap:5px;">
@@ -262,7 +182,6 @@
     <div id="schedule" class="page">
         <h1>الجدول الدراسي</h1>
         <div class="glass-card">
-            <div class="progress-container"><div id="schedule-progress" class="progress-bar"></div></div>
             <button onclick="addDay()" style="background:none; border:1px dashed var(--primary); color:var(--primary); width:100%; padding:12px; border-radius:12px; margin-bottom:20px; cursor:pointer;">+ إضافة يوم جديد للخطة</button>
             <div id="schedule-container"></div>
         </div>
@@ -288,8 +207,7 @@
     </div>
 
     <nav class="navbar">
-        <div class="nav-item active" onclick="showP('muslim-page', this)">🕋</div>
-        <div class="nav-item" onclick="showP('home', this)">⏳</div>
+        <div class="nav-item active" onclick="showP('home', this)">⏳</div>
         <div class="nav-item" onclick="showP('stopwatch-page', this)">🏁</div>
         <div class="nav-item" onclick="showP('tasks', this)">✅</div>
         <div class="nav-item" onclick="showP('time-block', this)">⏱️</div>
@@ -300,11 +218,21 @@
     <script>
         function initPWA() {
             const manifest = {
-                "name": "Tromadoro Mazen", "short_name": "Tromadoro", "start_url": ".", "display": "standalone", "background_color": "#000000", "theme_color": "#00ffcc",
-                "icons": [{"src": "https://cdn-icons-png.flaticon.com/512/2693/2693507.png", "sizes": "512x512", "type": "image/png"}]
+                "name": "Tromadoro Mazen",
+                "short_name": "Tromadoro",
+                "start_url": ".",
+                "display": "standalone",
+                "background_color": "#000000",
+                "theme_color": "#00ffcc",
+                "icons": [{
+                    "src": "https://cdn-icons-png.flaticon.com/512/2693/2693507.png",
+                    "sizes": "512x512",
+                    "type": "image/png"
+                }]
             };
             const blob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
             document.querySelector('#pwa-manifest').setAttribute('href', URL.createObjectURL(blob));
+
             if ('serviceWorker' in navigator) {
                 const swCode = 'self.addEventListener("fetch", (e) => e.respondWith(fetch(e.request).catch(() => caches.match(e.request))));';
                 const swBlob = new Blob([swCode], {type: 'application/javascript'});
@@ -322,107 +250,219 @@
         };
 
         let timerInt, isRunning = false, totalSecs = 0, sessionsTotalMinutes = 0, initialMinutes = 0;
-        let swInt, swRunning = false, swSecs = 0, completedSessions = 0;
+        let swInt, swRunning = false, swSecs = 0;
         const alarm = document.getElementById('alarm');
 
-        window.onbeforeunload = function() {
-            if (isRunning) return "هل تريد حقاً الخروج؟ جلسة التركيز لا تزال تعمل.";
-        };
-
         function saveAll() {
-            const data = {
-                tasks: [], prayers: [], blocks: [], schedule: [],
-                totalMinutes: sessionsTotalMinutes, theme: document.body.className,
-                dailyGoal: document.getElementById('daily-goal-input').value,
-                completedSessions: completedSessions, lastDate: new Date().toDateString()
-            };
-            document.querySelectorAll('#task-list .item-row').forEach(row => { data.tasks.push({ text: row.querySelector('.task-text').innerText, done: row.classList.contains('completed') }); });
-            document.querySelectorAll('#prayer-list-new .item-row').forEach(row => { data.prayers.push({ text: row.querySelector('.task-text').innerText, done: row.classList.contains('completed') }); });
-            document.querySelectorAll('#block-list .item-row').forEach(row => { data.blocks.push({ time: row.querySelector('.time-label').innerText, text: row.querySelector('.task-text').innerText, done: row.classList.contains('completed') }); });
-            document.querySelectorAll('#schedule-container .day-box').forEach(day => {
-                const dayData = { title: day.querySelector('[contenteditable]').innerText, tasks: [] };
-                day.querySelectorAll('.item-row').forEach(row => { dayData.tasks.push({ text: row.querySelector('.task-text').innerText, done: row.classList.contains('completed') }); });
-                data.schedule.push(dayData);
-            });
-            localStorage.setItem('tromadoro_data', JSON.stringify(data));
+            localStorage.setItem('tasks', document.getElementById('task-list').innerHTML);
+            localStorage.setItem('prayers', document.getElementById('prayer-list').innerHTML);
+            localStorage.setItem('blocks', document.getElementById('block-list').innerHTML);
+            localStorage.setItem('schedule', document.getElementById('schedule-container').innerHTML);
+            localStorage.setItem('totalMinutes', sessionsTotalMinutes);
+            localStorage.setItem('theme', document.body.className);
+            localStorage.setItem('customColor', getComputedStyle(document.documentElement).getPropertyValue('--primary'));
+            
+            // حفظ تاريخ آخر تحديث
+            localStorage.setItem('lastDate', new Date().toDateString());
         }
 
         function loadAll() {
-            const raw = localStorage.getItem('tromadoro_data');
-            if (!raw) {
-                const defaultPrayers = ["صلاة الفجر","صلاة الضحى","صلاة الظهر","صلاة العصر","صلاة المغرب","صلاة العشاء","قيام الليل والوتر","الورد القرآني"];
-                const container = document.getElementById('prayer-list-new');
-                defaultPrayers.forEach(p => renderPrayerRow(p, false));
-                return;
+            // منطق تصفير الصلوات كل يوم جديد
+            const today = new Date().toDateString();
+            const lastDate = localStorage.getItem('lastDate');
+
+            if(localStorage.getItem('tasks')) document.getElementById('task-list').innerHTML = localStorage.getItem('tasks');
+            
+            // إذا كان اليوم مختلف عن آخر يوم سجلنا فيه، نصفر الصلوات
+            if (lastDate && lastDate !== today) {
+                const prayerRows = document.querySelectorAll('#prayer-list .item-row');
+                prayerRows.forEach(row => row.classList.remove('completed'));
+                saveAll();
+            } else if(localStorage.getItem('prayers')) {
+                document.getElementById('prayer-list').innerHTML = localStorage.getItem('prayers');
             }
-            const data = JSON.parse(raw); const today = new Date().toDateString();
-            data.tasks.forEach(t => renderTaskRow(t.text, t.done));
-            const resetPrayers = data.lastDate !== today;
-            data.prayers.forEach(p => renderPrayerRow(p.text, resetPrayers ? false : p.done));
-            data.blocks.forEach(b => renderBlockRow(b.time, b.text, b.done));
-            data.schedule.forEach(day => { const dayId = 'day-' + Math.random(); renderDayBox(day.title, dayId, day.tasks); });
-            sessionsTotalMinutes = data.totalMinutes || 0; document.getElementById('total-minutes').innerText = sessionsTotalMinutes;
-            completedSessions = resetPrayers ? 0 : (data.completedSessions || 0);
-            document.getElementById('completed-sessions').innerText = completedSessions;
-            document.getElementById('daily-goal-input').value = data.dailyGoal || 0;
-            document.body.className = data.theme || '';
-            loadBg(); updateAllProgress();
+
+            if(localStorage.getItem('blocks')) document.getElementById('block-list').innerHTML = localStorage.getItem('blocks');
+            if(localStorage.getItem('schedule')) document.getElementById('schedule-container').innerHTML = localStorage.getItem('schedule');
+            if(localStorage.getItem('theme')) document.body.className = localStorage.getItem('theme');
+            if(localStorage.getItem('customColor')) setCustomColor(localStorage.getItem('customColor'));
+            loadBg();
+            if(localStorage.getItem('totalMinutes')) {
+                sessionsTotalMinutes = parseInt(localStorage.getItem('totalMinutes'));
+                document.getElementById('total-minutes').innerText = sessionsTotalMinutes;
+            }
         }
 
-        function updateAllProgress() { updateProgress('prayer-list-new', 'muslim-progress'); updateProgress('task-list', 'tasks-progress'); updateProgress('block-list', 'blocks-progress'); updateScheduleProgress(); }
-        function renderTaskRow(text, done) {
-            const d = document.createElement('div'); d.className = `item-row ${done ? 'completed' : ''}`;
-            d.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateProgress('task-list', 'tasks-progress')"></div><div class="task-text" contenteditable="true" oninput="saveAll()">${text}</div><div onclick="this.parentElement.remove(); saveAll(); updateProgress('task-list', 'tasks-progress')" style="color:red; cursor:pointer">×</div>`;
-            document.getElementById('task-list').appendChild(d);
+        function uploadBg(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imgData = e.target.result;
+                document.body.style.backgroundImage = `url('${imgData}')`;
+                const request = indexedDB.open("TromadoroDB", 1);
+                request.onupgradeneeded = (ev) => ev.target.result.createObjectStore("settings");
+                request.onsuccess = (ev) => {
+                    const db = ev.target.result;
+                    db.transaction("settings", "readwrite").objectStore("settings").put(imgData, "bgImage");
+                };
+            };
+            reader.readAsDataURL(file);
         }
-        function renderPrayerRow(text, done) {
-            const d = document.createElement('div'); d.className = `item-row ${done ? 'completed' : ''}`;
-            d.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateProgress('prayer-list-new', 'muslim-progress')"></div><div class="task-text">${text}</div>`;
-            document.getElementById('prayer-list-new').appendChild(d);
+
+        function loadBg() {
+            const request = indexedDB.open("TromadoroDB", 1);
+            request.onupgradeneeded = (ev) => ev.target.result.createObjectStore("settings");
+            request.onsuccess = (ev) => {
+                const db = ev.target.result;
+                db.transaction("settings").objectStore("settings").get("bgImage").onsuccess = (e) => {
+                    if (e.target.result) document.body.style.backgroundImage = `url('${e.target.result}')`;
+                };
+            };
         }
-        function renderBlockRow(time, text, done) {
-            const d = document.createElement('div'); d.className = `item-row ${done ? 'completed' : ''}`;
-            d.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateProgress('block-list', 'blocks-progress')"></div><div class="time-label">${time}</div><div class="task-text" contenteditable="true" oninput="saveAll()">${text}</div><div onclick="this.parentElement.remove(); saveAll(); updateProgress('block-list', 'blocks-progress')" style="color:red; cursor:pointer">×</div>`;
-            document.getElementById('block-list').appendChild(d);
+
+        function clearBg() { 
+            document.body.style.backgroundImage = 'none'; 
+            const request = indexedDB.open("TromadoroDB", 1);
+            request.onsuccess = (ev) => {
+                const db = ev.target.result;
+                db.transaction("settings", "readwrite").objectStore("settings").delete("bgImage");
+            };
         }
-        function renderDayBox(title, dayId, tasks = []) {
-            const container = document.getElementById('schedule-container'), d = document.createElement('div'); d.className = 'day-box';
-            d.innerHTML = `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;"><div contenteditable="true" oninput="saveAll()" style="color:var(--primary); font-weight:bold; font-size:1.1rem">${title}</div><div onclick="this.parentElement.parentElement.remove(); saveAll(); updateScheduleProgress()" style="color:red; font-size:0.7rem; cursor:pointer">حذف اليوم</div></div><div class="day-tasks-container" id="${dayId}"></div><button class="add-subtask-btn" onclick="addSubTask('${dayId}')">ضيف مهمة</button>`;
-            container.appendChild(d);
-            tasks.forEach(t => {
-                const taskRow = document.createElement('div'); taskRow.className = `item-row ${t.done ? 'completed' : ''}`;
-                taskRow.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateScheduleProgress()"></div><div class="task-text" contenteditable="true" oninput="saveAll()">${t.text}</div><div onclick="this.parentElement.remove(); saveAll(); updateScheduleProgress()" style="color:red; cursor:pointer; font-size:0.8rem">×</div>`;
-                document.getElementById(dayId).appendChild(taskRow);
+
+        function setCustomColor(color) {
+            document.documentElement.style.setProperty('--primary', color);
+            document.documentElement.style.setProperty('--border', color + '66');
+            saveAll();
+        }
+
+        function showTeachers(subj) {
+            document.getElementById('subject-list').style.display = 'none';
+            document.getElementById('teacher-view').style.display = 'block';
+            document.getElementById('subj-title').innerText = subj;
+            const container = document.getElementById('teachers-container');
+            container.innerHTML = "";
+            teachersData[subj].forEach((name, index) => {
+                const div = document.createElement('div');
+                div.className = 'teacher-row';
+                div.innerHTML = `<span>${name}</span> <span class="rank-tag">TOP #${index + 1}</span>`;
+                container.appendChild(div);
             });
         }
-        function updateProgress(listId, barId) { const list = document.getElementById(listId); if (!list) return; const items = list.querySelectorAll('.item-row'), completed = list.querySelectorAll('.item-row.completed'); const percent = items.length === 0 ? 0 : (completed.length / items.length) * 100; const bar = document.getElementById(barId); if (bar) bar.style.width = percent + '%'; }
-        function updateScheduleProgress() { const totalItems = document.querySelectorAll('#schedule-container .item-row'), completedItems = document.querySelectorAll('#schedule-container .item-row.completed'); const percent = totalItems.length === 0 ? 0 : (completedItems.length / totalItems.length) * 100; const bar = document.getElementById('schedule-progress'); if (bar) bar.style.width = percent + '%'; }
-        function uploadBg(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = function(e) { const imgData = e.target.result; document.body.style.backgroundImage = `url('${imgData}')`; const request = indexedDB.open("TromadoroDB", 1); request.onupgradeneeded = (ev) => ev.target.result.createObjectStore("settings"); request.onsuccess = (ev) => { ev.target.result.transaction("settings", "readwrite").objectStore("settings").put(imgData, "bgImage"); }; }; reader.readAsDataURL(file); }
-        function loadBg() { const request = indexedDB.open("TromadoroDB", 1); request.onupgradeneeded = (ev) => ev.target.result.createObjectStore("settings"); request.onsuccess = (ev) => { ev.target.result.transaction("settings").objectStore("settings").get("bgImage").onsuccess = (e) => { if (e.target.result) document.body.style.backgroundImage = `url('${e.target.result}')`; }; }; }
-        function clearBg() { document.body.style.backgroundImage = 'none'; indexedDB.open("TromadoroDB", 1).onsuccess = (ev) => { ev.target.result.transaction("settings", "readwrite").objectStore("settings").delete("bgImage"); }; }
-        function setCustomColor(color) { document.documentElement.style.setProperty('--primary', color); document.documentElement.style.setProperty('--border', color + '66'); saveAll(); }
-        function showTeachers(subj) { document.getElementById('subject-list').style.display = 'none'; document.getElementById('teacher-view').style.display = 'block'; document.getElementById('subj-title').innerText = subj; const container = document.getElementById('teachers-container'); container.innerHTML = ""; teachersData[subj].forEach((name, index) => { const div = document.createElement('div'); div.className = 'teacher-row'; div.innerHTML = `<span>${name}</span> <span class="rank-tag">TOP #${index + 1}</span>`; container.appendChild(div); }); }
-        function hideTeachers() { document.getElementById('subject-list').style.display = 'block'; document.getElementById('teacher-view').style.display = 'none'; }
-        function showP(id, el) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.getElementById(id).classList.add('active'); document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active')); el.classList.add('active'); }
+
+        function hideTeachers() {
+            document.getElementById('subject-list').style.display = 'block';
+            document.getElementById('teacher-view').style.display = 'none';
+        }
+
+        function showP(id, el) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
+        }
+
         function startTimer() {
             const mDisp = document.getElementById('min-unit'), sDisp = document.getElementById('sec-unit'), btn = document.getElementById('action-btn');
             if (!isRunning) {
-                let minsInput = parseInt(mDisp.innerText) || 0, secsInput = parseInt(sDisp.innerText) || 0; totalSecs = (minsInput * 60) + secsInput; if (totalSecs <= 0) return; initialMinutes = minsInput; isRunning = true; btn.innerText = "توقف"; mDisp.contentEditable = sDisp.contentEditable = "false";
+                let minsInput = parseInt(mDisp.innerText) || 0;
+                let secsInput = parseInt(sDisp.innerText) || 0;
+                totalSecs = (minsInput * 60) + secsInput;
+                if (totalSecs <= 0) return;
+                initialMinutes = minsInput;
+                isRunning = true; btn.innerText = "توقف";
+                mDisp.contentEditable = sDisp.contentEditable = "false";
                 timerInt = setInterval(() => {
-                    if (totalSecs > 0) { totalSecs--; mDisp.innerText = Math.floor(totalSecs / 60); sDisp.innerText = (totalSecs % 60).toString().padStart(2, '0'); }
-                    else { clearInterval(timerInt); isRunning = false; sessionsTotalMinutes += initialMinutes; document.getElementById('total-minutes').innerText = sessionsTotalMinutes; completedSessions++; document.getElementById('completed-sessions').innerText = completedSessions; saveAll(); alarm.play(); alert("عاش يا بطل!"); resetTimer(); }
+                    if (totalSecs > 0) {
+                        totalSecs--;
+                        mDisp.innerText = Math.floor(totalSecs / 60);
+                        sDisp.innerText = (totalSecs % 60).toString().padStart(2, '0');
+                    } else {
+                        clearInterval(timerInt); isRunning = false;
+                        sessionsTotalMinutes += initialMinutes;
+                        document.getElementById('total-minutes').innerText = sessionsTotalMinutes;
+                        saveAll(); alarm.play(); alert("عاش يا بطل!"); resetTimer();
+                    }
                 }, 1000);
             } else { clearInterval(timerInt); isRunning = false; btn.innerText = "استئناف"; }
         }
-        function resetTimer() { clearInterval(timerInt); isRunning = false; document.getElementById('min-unit').innerText = "25"; document.getElementById('sec-unit').innerText = "00"; document.getElementById('min-unit').contentEditable = document.getElementById('sec-unit').contentEditable = "true"; document.getElementById('action-btn').innerText = "ابدأ الجلسة"; }
-        function toggleStopwatch() { const btn = document.getElementById('sw-btn'), mDisp = document.getElementById('sw-min'), sDisp = document.getElementById('sw-sec'); if (!swRunning) { swRunning = true; btn.innerText = "توقف"; swInt = setInterval(() => { swSecs++; mDisp.innerText = Math.floor(swSecs / 60).toString().padStart(2, '0'); sDisp.innerText = (swSecs % 60).toString().padStart(2, '0'); }, 1000); } else { clearInterval(swInt); swRunning = false; btn.innerText = "استئناف"; } }
-        function resetStopwatch() { clearInterval(swInt); swRunning = false; swSecs = 0; document.getElementById('sw-min').innerText = "00"; document.getElementById('sw-sec').innerText = "00"; document.getElementById('sw-btn').innerText = "ابدأ العداد"; }
-        function addTask() { const inp = document.getElementById('task-in'), val = inp.value; if (!val) return; renderTaskRow(val, false); inp.value = ""; saveAll(); updateProgress('task-list', 'tasks-progress'); }
-        function convertTo12Hour(time) { let [h, m] = time.split(':'); let ampm = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12; return `${h}:${m} ${ampm}`; }
-        function addTimeBlock() { const timeIn = document.getElementById('block-time'), descIn = document.getElementById('block-desc'); if (!timeIn.value || !descIn.value) return; renderBlockRow(convertTo12Hour(timeIn.value), descIn.value, false); descIn.value = ""; saveAll(); updateProgress('block-list', 'blocks-progress'); }
-        function addDay() { const dayId = 'day-' + Date.now(); renderDayBox('اسم اليوم...', dayId, []); saveAll(); updateScheduleProgress(); }
-        function addSubTask(containerId) { const container = document.getElementById(containerId), taskRow = document.createElement('div'); taskRow.className = 'item-row'; taskRow.style.margin = "5px 0"; taskRow.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll(); updateScheduleProgress()"></div><div class="task-text" contenteditable="true" oninput="saveAll()"></div><div onclick="this.parentElement.remove(); saveAll(); updateScheduleProgress()" style="color:red; cursor:pointer; font-size:0.8rem">×</div>`; container.appendChild(taskRow); saveAll(); updateScheduleProgress(); }
-        function setTheme(cls) { document.body.className = cls; if (cls === '') setCustomColor('#00ffcc'); else if (cls === 'dark-red') setCustomColor('#ff3131'); else if (cls === 'dark-blue') setCustomColor('#00d2ff'); else if (cls === 'dark-purple') setCustomColor('#bc13fe'); saveAll(); }
+
+        function resetTimer() {
+            clearInterval(timerInt); isRunning = false;
+            document.getElementById('min-unit').innerText = "25"; document.getElementById('sec-unit').innerText = "00";
+            document.getElementById('min-unit').contentEditable = document.getElementById('sec-unit').contentEditable = "true";
+            document.getElementById('action-btn').innerText = "ابدأ الجلسة";
+        }
+
+        function toggleStopwatch() {
+            const btn = document.getElementById('sw-btn');
+            const mDisp = document.getElementById('sw-min');
+            const sDisp = document.getElementById('sw-sec');
+            if (!swRunning) {
+                swRunning = true; btn.innerText = "توقف";
+                swInt = setInterval(() => {
+                    swSecs++;
+                    mDisp.innerText = Math.floor(swSecs / 60).toString().padStart(2, '0');
+                    sDisp.innerText = (swSecs % 60).toString().padStart(2, '0');
+                }, 1000);
+            } else {
+                clearInterval(swInt); swRunning = false; btn.innerText = "استئناف";
+            }
+        }
+        function resetStopwatch() {
+            clearInterval(swInt); swRunning = false; swSecs = 0;
+            document.getElementById('sw-min').innerText = "00";
+            document.getElementById('sw-sec').innerText = "00";
+            document.getElementById('sw-btn').innerText = "ابدأ العداد";
+        }
+
+        function addTask() {
+            const inp = document.getElementById('task-in'), val = inp.value; if (!val) return;
+            const d = document.createElement('div'); d.className = 'item-row';
+            d.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll()"></div><div class="task-text" contenteditable="true" oninput="saveAll()">${val}</div><div onclick="this.parentElement.remove(); saveAll()" style="color:red; cursor:pointer">×</div>`;
+            document.getElementById('task-list').appendChild(d); inp.value = ""; saveAll();
+        }
+
+        function convertTo12Hour(time) {
+            let [h, m] = time.split(':');
+            let ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12 || 12;
+            return `${h}:${m} ${ampm}`;
+        }
+
+        function addTimeBlock() {
+            const timeIn = document.getElementById('block-time'), descIn = document.getElementById('block-desc');
+            if (!timeIn.value || !descIn.value) return;
+            const displayTime = convertTo12Hour(timeIn.value);
+            const d = document.createElement('div'); d.className = 'item-row';
+            d.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll()"></div><div class="time-label">${displayTime}</div><div class="task-text" contenteditable="true" oninput="saveAll()">${descIn.value}</div><div onclick="this.parentElement.remove(); saveAll()" style="color:red; cursor:pointer">×</div>`;
+            document.getElementById('block-list').appendChild(d); descIn.value = ""; saveAll();
+        }
+
+        function addDay() {
+            const container = document.getElementById('schedule-container');
+            const d = document.createElement('div'); d.className = 'day-box';
+            const dayId = 'day-' + Date.now();
+            d.innerHTML = `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;"><div contenteditable="true" oninput="saveAll()" style="color:var(--primary); font-weight:bold; font-size:1.1rem">اسم اليوم...</div><div onclick="this.parentElement.parentElement.remove(); saveAll()" style="color:red; font-size:0.7rem; cursor:pointer">حذف اليوم</div></div><div class="day-tasks-container" id="${dayId}"></div><button class="add-subtask-btn" onclick="addSubTask('${dayId}')">ضيف مهمة</button>`;
+            container.appendChild(d); saveAll();
+        }
+
+        function addSubTask(containerId) {
+            const container = document.getElementById(containerId);
+            const taskRow = document.createElement('div');
+            taskRow.className = 'item-row'; taskRow.style.margin = "5px 0";
+            taskRow.innerHTML = `<div class="check-dot" onclick="this.parentElement.classList.toggle('completed'); saveAll()"></div><div class="task-text" contenteditable="true" oninput="saveAll()"></div><div onclick="this.parentElement.remove(); saveAll()" style="color:red; cursor:pointer; font-size:0.8rem">×</div>`;
+            container.appendChild(taskRow); saveAll();
+        }
+
+        function setTheme(cls) { 
+            document.body.className = cls;
+            if (cls === '') setCustomColor('#00ffcc');
+            else if (cls === 'dark-red') setCustomColor('#ff3131');
+            else if (cls === 'dark-blue') setCustomColor('#00d2ff');
+            else if (cls === 'dark-purple') setCustomColor('#bc13fe');
+            saveAll();
+        }
     </script>
 </body>
 </html>
